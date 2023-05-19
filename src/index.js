@@ -1,17 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDpYensasBXvi3b9NdZkIDyl7oJDDdYSPQ",
+  authDomain: "bitebuddy-51bcd.firebaseapp.com",
+  projectId: "bitebuddy-51bcd",
+  storageBucket: "bitebuddy-51bcd.appspot.com",
+  messagingSenderId: "876959591034",
+  appId: "1:876959591034:web:f1cfe5c465a19b34cb29c3",
+  measurementId: "G-1SX75QNXTX"
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
